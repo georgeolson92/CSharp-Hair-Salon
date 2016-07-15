@@ -7,6 +7,7 @@
   @foreach (var client in Model["clients"])
   {
     <li>@client.GetName()</li>
+    <p>@client.GetId()</p>
   }
 }
 else
@@ -22,8 +23,8 @@ else
   <input value=@Model["stylist"].GetId()>
   <button type="submit">Add new cient!</button>
 </form>
-<!-- <h3>Delete one of @Model["stylist"].GetName()'s clients:</h3>
-<form action="/clients/delete/" method="post">
+<h3>Delete one of @Model["stylist"].GetName()'s clients:</h3>
+<form action='/clients/delete' method='post'>
   <input type="hidden" name="_method" value="DELETE">
   <select name="clientName">
     @foreach (var client in Model["clients"])
@@ -34,7 +35,7 @@ else
   <button type="submit">Remove</button>
 </form>
 <h3>Edit one of @Model["stylist"].GetName()'s clients:</h3>
-<form action="/clients/edit/" method="post">
+<form action='/stylists/@Model["stylist"].GetId()/clients/edit' method='post'>
   <input type="hidden" name="_method" value="PATCH">
   <select name="cuisineName">
     @foreach (var client in Model["clients"])
@@ -43,7 +44,7 @@ else
     }
   </select>
   <button type="submit">Edit</button>
-</form> -->
+</form>
 
 
 <a href="/">Return to home</a>

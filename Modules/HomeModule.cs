@@ -57,6 +57,12 @@ namespace HairSalon
         model.Add("clients", allClients);
         return View["index.cshtml", model];
       };
+      Delete["/clients/delete"] = p_ => {
+        int searchId = Request.Form["clientName"];
+        Client SelectedClient = Client.Find(searchId);
+        SelectedClient.Delete();
+        return View["removed_client.cshtml", SelectedClient];
+      };
       // Get["/clients/edit/"] = _ => {
       //   return View["client_edit.cshtml"];
       // };
