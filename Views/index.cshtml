@@ -2,9 +2,16 @@
 
 <h3>Stylists:</h3>
 <ul>
-@foreach (var stylist in Model["stylists"])
+@if (Model["stylists"].Count != 0)
 {
-  <li><a href="/stylists/@stylist.GetId()">@stylist.GetName()</a></li>
+  @foreach (var stylist in Model["stylists"])
+  {
+    <li><a href="/stylists/@stylist.GetId()">@stylist.GetName()</a></li>
+  }
+}
+else
+{
+  <p>No stylists.</p>
 }
 </ul>
 
@@ -14,4 +21,16 @@
   <input name="stylistName">
 
   <button type="submit">Add new stylist!</button>
+</form>
+
+<h3>Delete a stylist:</h3>
+<form action="/stylists/delete/" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <select name="stylistName">
+    @foreach (var stylist in Model["stylists"])
+    {
+      <option value=@stylist.GetId()>@stylist.GetName()</option>
+    }
+  </select>
+  <button type="submit">Remove</button>
 </form>

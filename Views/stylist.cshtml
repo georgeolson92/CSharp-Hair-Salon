@@ -2,9 +2,16 @@
 <h2>@Model["stylist"].GetName()'s Client List</h2>
 
 <ul>
-@foreach (var client in Model["clients"])
+@if (Model["clients"].Count != 0)
 {
-  <li>@client.GetName()</li>
+  @foreach (var client in Model["clients"])
+  {
+    <li>@client.GetName()</li>
+  }
+}
+else
+{
+  <p>No stylists.</p>
 }
 </ul>
 
@@ -15,6 +22,28 @@
   <input value=@Model["stylist"].GetId()>
   <button type="submit">Add new cient!</button>
 </form>
+<!-- <h3>Delete one of @Model["stylist"].GetName()'s clients:</h3>
+<form action="/clients/delete/" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <select name="clientName">
+    @foreach (var client in Model["clients"])
+    {
+      <option value=@client.GetId()>@client.GetName()</option>
+    }
+  </select>
+  <button type="submit">Remove</button>
+</form>
+<h3>Edit one of @Model["stylist"].GetName()'s clients:</h3>
+<form action="/clients/edit/" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <select name="cuisineName">
+    @foreach (var client in Model["clients"])
+    {
+      <option value=@client.GetId()>@client.GetName()</option>
+    }
+  </select>
+  <button type="submit">Edit</button>
+</form> -->
 
 
 <a href="/">Return to home</a>
