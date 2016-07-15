@@ -7,10 +7,13 @@ _Track who's getting their hurr did with dis application!_
 ### Specifications
 | Behavior | Input | Output |
 |:---  | :---  | :----  |
-|behavior1| `input`| `output`|
-|behavior2| `input`| `output`|
-|behavior3| `input`| `output`|
-|behavior4| `input`| `output`|
+|Adds a new stylist to a list| `new stylist = "Nancy"`| `"List of Stylists: Nancy"`|
+|Edits stylist name| `stylist = "Nancy", new name = "Nancy Jr."`| `"List of Stylists: Nancy Jr."`|
+|Removes a stylist from list| `remove stylist "Nancy"`| `No stylists in list.`|
+|Adds a client to a list of stylist's clients| `new client: name = "Beck", stylist = "Nancy";`| `"List of Nancy's clients: Beck"`|
+|Edits client name| `client = "Beck", new name = "Becky"`| `"List of Nancy's clients: Becky"`|
+|Removes a client from stylist's list| `remove client "Becky"`| `No clients in Nancy's list.`|
+
 
 ### Setup/Installation Requirements
 
