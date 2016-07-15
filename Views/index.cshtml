@@ -34,3 +34,14 @@ else
   </select>
   <button type="submit">Remove</button>
 </form>
+
+<h3>Edit a stylist:</h3>
+<form action="/stylists/edit/" method="post">
+  <select name="stylistName">
+    @foreach (var stylist in Model["stylists"])
+    {
+      <option value=@stylist.GetId()>@stylist.GetName()</option>
+    }
+  </select>
+  <button type="submit">Edit</button>
+</form>
