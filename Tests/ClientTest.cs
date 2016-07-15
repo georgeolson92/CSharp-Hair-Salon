@@ -55,10 +55,10 @@ namespace HairSalon
     public void Test_EditClient_UpdatesClientInDatabase()
     {
       //Arrange
-      string name = "Becky";
+      string name = "Beck";
       Client testClient = new Client(name, 1);
       testClient.Save();
-      string newName = "Becky With The Good Hair";
+      string newName = "Becky";
 
       //Act
       testClient.Update(newName);

@@ -53,19 +53,19 @@ namespace HairSalon
       Assert.Equal(testList, result);
     }
 
-    // [Fact]
-    // public void Test_FindStylist_FindsStylistInDatabase()
-    // {
-    //   //Arrange
-    //   Stylist testStylist = new Stylist("Nancy");
-    //   testStylist.Save();
-    //
-    //   //Act
-    //   Stylist foundStylist = Stylist.Find(testStylist.GetId());
-    //
-    //   //Assert
-    //   Assert.Equal(testStylist, foundStylist);
-    // }
+    [Fact]
+    public void Test_FindStylist_FindsStylistInDatabase()
+    {
+      //Arrange
+      Stylist testStylist = new Stylist("Nancy");
+      testStylist.Save();
+
+      //Act
+      Stylist foundStylist = Stylist.Find(testStylist.GetId());
+
+      //Assert
+      Assert.Equal(testStylist, foundStylist);
+    }
 
     [Fact]
     public void Test_EditStylist_UpdatesStylistInDatabase()

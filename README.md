@@ -12,7 +12,7 @@ _Track who's getting their hurr did with dis application!_
 |Removes a stylist from list| `remove stylist "Nancy"`| `No stylists in list.`|
 |Adds a client to a list of stylist's clients| `new client: name = "Beck", stylist = "Nancy";`| `"List of Nancy's clients: Beck"`|
 |Edits client name| `client = "Beck", new name = "Becky"`| `"List of Nancy's clients: Becky"`|
-|Removes a client from stylist's list| `remove client "Becky"`| `No clients in Nancy's list.`|
+|Removes a client| `remove client "Becky"`| `No clients in Nancy's list.`|
 
 
 ### Setup/Installation Requirements
