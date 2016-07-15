@@ -4,7 +4,7 @@
 
 <form action='/stylists/@Model["stylist"].GetId()/clients/edit' method='post'>
   <input type="hidden" name="_method" value="PATCH">
-  <input type='number' value='@Model["client"].GetId()' name='clientEditId'>
+  <input value='@Model["client"].GetId()' name='clientEditId' type='hidden'>
   <label for="newName">New Client Name:</label>
   <input name="newName">
 

@@ -7,12 +7,20 @@
   @foreach (var client in Model["clients"])
   {
     <li>@client.GetName()</li>
-    <p>@client.GetId()</p>
+    <form action='/stylists/@Model["stylist"].GetId()/clients/edit' method='post'>
+      <input name="clientName" value=@client.GetId() type="hidden">
+      <button type="submit">Edit</button>
+    </form>
+    <form action='/stylists/@Model["stylist"].GetId()/clients/delete' method='post'>
+      <input type="hidden" name="_method" value="DELETE">
+      <input name="clientName" value=@client.GetId() type="hidden">
+      <button type="submit">Remove</button>
+    </form>
   }
 }
 else
 {
-  <p>No stylists.</p>
+  <p>No clients.</p>
 }
 </ul>
 
@@ -20,10 +28,10 @@ else
 <form action='/stylists/@Model["stylist"].GetId()/clients/new' method='post'>
   <label for="clientName">Client Name:</label>
   <input name="clientName">
-  <input value=@Model["stylist"].GetId()>
+  <input value=@Model["stylist"].GetId() type="hidden">
   <button type="submit">Add new cient!</button>
 </form>
-<h3>Delete one of @Model["stylist"].GetName()'s clients:</h3>
+<!-- <h3>Delete one of @Model["stylist"].GetName()'s clients:</h3>
 <form action='/stylists/@Model["stylist"].GetId()/clients/delete' method='post'>
   <input type="hidden" name="_method" value="DELETE">
   <select name="clientName">
@@ -43,7 +51,7 @@ else
     }
   </select>
   <button type="submit">Edit</button>
-</form>
+</form> -->
 
 
 <a href="/">Return to home</a>

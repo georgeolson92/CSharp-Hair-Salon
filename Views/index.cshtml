@@ -7,6 +7,15 @@
   @foreach (var stylist in Model["stylists"])
   {
     <li><a href="/stylists/@stylist.GetId()">@stylist.GetName()</a></li>
+    <form action="/stylists/edit/" method="post">
+      <input name="stylistName" value=@stylist.GetId() type="hidden">
+      <button type="submit">Edit</button>
+    </form>
+    <form action="/stylists/delete/" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <input name="stylistName" value=@stylist.GetId() type="hidden">
+      <button type="submit">Remove</button>
+    </form>
   }
 }
 else
@@ -23,7 +32,7 @@ else
   <button type="submit">Add new stylist!</button>
 </form>
 
-<h3>Delete a stylist:</h3>
+<!-- <h3>Delete a stylist:</h3>
 <form action="/stylists/delete/" method="post">
   <input type="hidden" name="_method" value="DELETE">
   <select name="stylistName">
@@ -33,9 +42,9 @@ else
     }
   </select>
   <button type="submit">Remove</button>
-</form>
+</form> -->
 
-<h3>Edit a stylist:</h3>
+<!-- <h3>Edit a stylist:</h3>
 <form action="/stylists/edit/" method="post">
   <select name="stylistName">
     @foreach (var stylist in Model["stylists"])
@@ -44,4 +53,4 @@ else
     }
   </select>
   <button type="submit">Edit</button>
-</form>
+</form> -->
