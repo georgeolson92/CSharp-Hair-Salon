@@ -1,16 +1,32 @@
 <h1>Hair Salon</h1>
 
+<h3>Stylists:</h3>
 <ul>
-@foreach (var stylist in @Model)
+@foreach (var stylist in Model["stylists"])
 {
-  <li>@stylist.GetName()</li>
+  <li><a href="/stylists/@stylist.GetId()">@stylist.GetName()</a></li>
 }
 </ul>
 
-
+<h3>Add new stylist:</h3>
 <form action="/stylists/new" method="post">
-  <label for="stylistName">Stylist Name</label>
+  <label for="stylistName">Stylist Name:</label>
   <input name="stylistName">
 
   <button type="submit">Add new stylist!</button>
+</form>
+
+<h3>Add new client:</h3>
+<form action="/clients/new" method="post">
+  <label for="clientName">Client Name:</label>
+  <input name="clientName">
+
+  <label for="stylistId">Stylist for Client:</label>
+  <select name="stylistId">
+  @foreach (var stylist in Model["stylists"])
+  {
+    <option value=@stylist.GetId()>@stylist.GetName()</option>
+  }
+  </select>
+  <button type="submit">Add new cient!</button>
 </form>
