@@ -48,7 +48,7 @@ namespace HairSalon
       SqlDataReader rdr = null;
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("SELECT * FROM stylists ORDER BY name DESC;", conn);
+      SqlCommand cmd = new SqlCommand("SELECT * FROM stylists ORDER BY name ASC;", conn);
       rdr = cmd.ExecuteReader();
 
       while(rdr.Read())

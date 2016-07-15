@@ -1,0 +1,16 @@
+<h1>Hair Salon</h1>
+
+<ul>
+@foreach (var stylist in @Model)
+{
+  <li>@stylist.GetName()</li>
+}
+</ul>
+
+
+<form action="/stylists/new" method="post">
+  <label for="stylistName">Stylist Name</label>
+  <input name="stylistName">
+
+  <button type="submit">Add new stylist!</button>
+</form>
