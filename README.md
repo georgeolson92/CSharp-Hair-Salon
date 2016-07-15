@@ -17,6 +17,7 @@ _Track who's getting their hurr did with dis application!_
 
 ### Setup/Installation Requirements
 
+#### Step 1
 **Windows Users:**
 * Open PowerShell and ensure that C&#35; is installed (<a href="https://www.learnhowtoprogram.com/c/getting-started-with-c/installing-c">View link</a> for information on installing C&#35; in PowerShell)
 * Ensure that Git project management is functioning (<a href="https://www.learnhowtoprogram.com/c/getting-started-with-c/git-project-setup-for-windows">View link</a> for information on setting up Git in PowerShell)
@@ -34,6 +35,18 @@ _Track who's getting their hurr did with dis application!_
 * Enter "dnu restore" in Terminal to restore dependences
 * Enter "dnx kestrel" to compile code
 * View "http://localhost:5004" in your default web browser
+
+#### Step 2
+
+Create the database using the following commands in PowerShell's SQLCMD:
+
+* **CREATE DATABASE hair_salon;**
+* **GO**
+* **USE hair_salon;**
+* **GO**
+* **CREATE TABLE stylists (id INT IDENTITY(1,1), name VARCHAR(255));**
+* **CREATE TABLE clients (id INT IDENTITY(1,1), name VARCHAR(255), stylist_id INT);**
+* **GO**
 
 ### Known Bugs
 No known bugs in current version.
