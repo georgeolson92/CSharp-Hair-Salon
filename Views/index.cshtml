@@ -1,56 +1,63 @@
-<h1>Hair Salon</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Content/css/styles.css" type="text/css">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
 
-<h3>Stylists:</h3>
-<ul>
-@if (Model["stylists"].Count != 0)
-{
-  @foreach (var stylist in Model["stylists"])
-  {
-    <li><a href="/stylists/@stylist.GetId()">@stylist.GetName()</a></li>
-    <form action="/stylists/edit/" method="post">
-      <input name="stylistName" value=@stylist.GetId() type="hidden">
-      <button type="submit">Edit</button>
-    </form>
-    <form action="/stylists/delete/" method="post">
-      <input type="hidden" name="_method" value="DELETE">
-      <input name="stylistName" value=@stylist.GetId() type="hidden">
-      <button type="submit">Remove</button>
-    </form>
-  }
-}
-else
-{
-  <p>No stylists.</p>
-}
-</ul>
+      <h1>Hair Salon</h1>
 
-<h3>Add new stylist:</h3>
-<form action="/stylists/new" method="post">
-  <label for="stylistName">Stylist Name:</label>
-  <input name="stylistName">
+      <h3>Stylists:</h3>
+      <ul>
+      @if (Model["stylists"].Count != 0)
+      {
+        @foreach (var stylist in Model["stylists"])
+        {
+          <li>
+            <a href="/stylists/@stylist.GetId()">@stylist.GetName()</a>
+            <form class='float-form' action="/stylists/edit/" method="post">
+              <input name="stylistName" value=@stylist.GetId() type="hidden">
+              <button type="submit" class="btn btn-success">Edit</button>
+            </form>
+            <form class='float-form' action="/stylists/delete/" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+              <input name="stylistName" value=@stylist.GetId() type="hidden">
+              <button type="submit" class="btn btn-danger">Remove</button>
+            </form>
+          </li>
+        }
+      }
+      else
+      {
+        <p>No stylists.</p>
+      }
+      </ul>
 
-  <button type="submit">Add new stylist!</button>
-</form>
+      <h3>Add new stylist:</h3>
+      <form action="/stylists/new" method="post">
+        <label for="stylistName">Stylist Name:</label>
+        <input name="stylistName" required>
 
-<!-- <h3>Delete a stylist:</h3>
-<form action="/stylists/delete/" method="post">
-  <input type="hidden" name="_method" value="DELETE">
-  <select name="stylistName">
-    @foreach (var stylist in Model["stylists"])
-    {
-      <option value=@stylist.GetId()>@stylist.GetName()</option>
-    }
-  </select>
-  <button type="submit">Remove</button>
-</form> -->
+        <button type="submit" class="btn btn-primary">Add new stylist!</button>
+      </form>
 
-<!-- <h3>Edit a stylist:</h3>
-<form action="/stylists/edit/" method="post">
-  <select name="stylistName">
-    @foreach (var stylist in Model["stylists"])
-    {
-      <option value=@stylist.GetId()>@stylist.GetName()</option>
-    }
-  </select>
-  <button type="submit">Edit</button>
-</form> -->
+      <h3>Remove all stylists</h3>
+      <form action="/stylists/delete/all" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" class="btn btn-primary">Remove all stylists!</button>
+      </form>
+
+      <h3>Remove all clients</h3>
+      <form action="/clients/delete/all" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" class="btn btn-primary">Remove all clients!</button>
+      </form>
+
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+.float-form button{
+  float: left;
+}
+
+li {
+  min-height: 80px;
+  margin-bottom: 20px;
+}

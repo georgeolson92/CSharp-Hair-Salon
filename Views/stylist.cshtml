@@ -1,57 +1,71 @@
-<h1>Hair Salon</h1>
-<h2>@Model["stylist"].GetName()'s Client List</h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Content/css/styles.css" type="text/css">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Hair Salon</h1>
+      <h2>@Model["stylist"].GetName()'s Client List</h2>
 
-<ul>
-@if (Model["clients"].Count != 0)
-{
-  @foreach (var client in Model["clients"])
-  {
-    <li>@client.GetName()</li>
-    <form action='/stylists/@Model["stylist"].GetId()/clients/edit' method='post'>
-      <input name="clientName" value=@client.GetId() type="hidden">
-      <button type="submit">Edit</button>
-    </form>
-    <form action='/stylists/@Model["stylist"].GetId()/clients/delete' method='post'>
-      <input type="hidden" name="_method" value="DELETE">
-      <input name="clientName" value=@client.GetId() type="hidden">
-      <button type="submit">Remove</button>
-    </form>
-  }
-}
-else
-{
-  <p>No clients.</p>
-}
-</ul>
+      <ul>
+      @if (Model["clients"].Count != 0)
+      {
+        @foreach (var client in Model["clients"])
+        {
+          <li>@client.GetName()
+            <form class='float-form' action='/stylists/@Model["stylist"].GetId()/clients/edit' method='post'>
+              <input name="clientName" value=@client.GetId() type="hidden">
+              <button type="submit" class="btn btn-success">Edit</button>
+            </form>
+            <form class='float-form' action='/stylists/@Model["stylist"].GetId()/clients/delete' method='post'>
+              <input type="hidden" name="_method" value="DELETE">
+              <input name="clientName" value=@client.GetId() type="hidden">
+              <button type="submit" class="btn btn-danger">Remove</button>
+            </form>
+          </li>
+        }
+      }
+      else
+      {
+        <p>No clients.</p>
+      }
+      </ul>
 
-<h3>Add new client:</h3>
-<form action='/stylists/@Model["stylist"].GetId()/clients/new' method='post'>
-  <label for="clientName">Client Name:</label>
-  <input name="clientName">
-  <input value=@Model["stylist"].GetId() type="hidden">
-  <button type="submit">Add new cient!</button>
-</form>
-<!-- <h3>Delete one of @Model["stylist"].GetName()'s clients:</h3>
-<form action='/stylists/@Model["stylist"].GetId()/clients/delete' method='post'>
-  <input type="hidden" name="_method" value="DELETE">
-  <select name="clientName">
-    @foreach (var client in Model["clients"])
-    {
-      <option value=@client.GetId()>@client.GetName()</option>
-    }
-  </select>
-  <button type="submit">Remove</button>
-</form>
-<h3>Edit one of @Model["stylist"].GetName()'s clients:</h3>
-<form action='/stylists/@Model["stylist"].GetId()/clients/edit' method='post'>
-  <select name="clientName">
-    @foreach (var client in Model["clients"])
-    {
-      <option value=@client.GetId()>@client.GetName()</option>
-    }
-  </select>
-  <button type="submit">Edit</button>
-</form> -->
+      <h3>Add new client:</h3>
+      <form action='/stylists/@Model["stylist"].GetId()/clients/new' method='post'>
+        <label for="clientName">Client Name:</label>
+        <input name="clientName" required>
+        <input value=@Model["stylist"].GetId() type="hidden">
+        <button type="submit" class="btn btn-primary">Add new client!</button>
+      </form>
+      <!-- <h3>Delete one of @Model["stylist"].GetName()'s clients:</h3>
+      <form action='/stylists/@Model["stylist"].GetId()/clients/delete' method='post'>
+        <input type="hidden" name="_method" value="DELETE">
+        <select name="clientName">
+          @foreach (var client in Model["clients"])
+          {
+            <option value=@client.GetId()>@client.GetName()</option>
+          }
+        </select>
+        <button type="submit">Remove</button>
+      </form>
+      <h3>Edit one of @Model["stylist"].GetName()'s clients:</h3>
+      <form action='/stylists/@Model["stylist"].GetId()/clients/edit' method='post'>
+        <select name="clientName">
+          @foreach (var client in Model["clients"])
+          {
+            <option value=@client.GetId()>@client.GetName()</option>
+          }
+        </select>
+        <button type="submit">Edit</button>
+      </form> -->
 
 
-<a href="/">Return to home</a>
+      <a href="/">Return to home</a>
+    </div>
+  </body>
+</html>

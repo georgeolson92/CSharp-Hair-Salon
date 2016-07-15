@@ -1,12 +1,26 @@
-<h1>Hair Salon</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Content/css/styles.css" type="text/css">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
 
-<h3>Edit a client - editing @Model["client"].GetName()</h3>
+      <h1>Hair Salon</h1>
 
-<form action='/stylists/@Model["stylist"].GetId()/clients/edit' method='post'>
-  <input type="hidden" name="_method" value="PATCH">
-  <input value='@Model["client"].GetId()' name='clientEditId' type='hidden'>
-  <label for="newName">New Client Name:</label>
-  <input name="newName">
+      <h3>Edit a client - editing @Model["client"].GetName()</h3>
 
-  <button type="submit">Edit client!</button>
-</form>
+      <form action='/stylists/@Model["stylist"].GetId()/clients/edit' method='post'>
+        <input type="hidden" name="_method" value="PATCH">
+        <input value='@Model["client"].GetId()' name='clientEditId' type='hidden'>
+        <label for="newName">New Client Name:</label>
+        <input name="newName" required>
+
+        <button type="submit" class="btn btn-primary">Edit client!</button>
+      </form>
+    </div>
+  </body>
+</html>
