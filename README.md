@@ -2,7 +2,7 @@
 #### By _George Olson_
 
 ### Description
-_Track who's getting their hurr did with dis application!_
+_Track who's getting their hair did with this application!_
 
 ### Specifications
 | Behavior | Input | Output |
