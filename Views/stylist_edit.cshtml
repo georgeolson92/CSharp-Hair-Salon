@@ -1,0 +1,11 @@
+<h1>Hair Salon</h1>
+
+<h3>Edit a stylist</h3>
+
+<form action="/stylists/@Model.GetId()/edit" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <label for="NewName">New Stylist Name:</label>
+  <input name="NewName">
+
+  <button type="submit">Edit stylist!</button>
+</form>

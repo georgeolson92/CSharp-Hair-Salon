@@ -1,0 +1,20 @@
+<h1>Hair Salon</h1>
+<h2>@Model["stylist"].GetName()'s Client List</h2>
+
+<ul>
+@foreach (var client in Model["clients"])
+{
+  <li>@client.GetName()</li>
+}
+</ul>
+
+<h3>Add new client:</h3>
+<form action='/stylists/@Model["stylist"].GetId()/clients/new' method='post'>
+  <label for="clientName">Client Name:</label>
+  <input name="clientName">
+  <input value=@Model["stylist"].GetId()>
+  <button type="submit">Add new cient!</button>
+</form>
+
+
+<a href="/">Return to home</a>

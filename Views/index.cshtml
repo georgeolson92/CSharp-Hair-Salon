@@ -15,18 +15,3 @@
 
   <button type="submit">Add new stylist!</button>
 </form>
-
-<h3>Add new client:</h3>
-<form action="/clients/new" method="post">
-  <label for="clientName">Client Name:</label>
-  <input name="clientName">
-
-  <label for="stylistId">Stylist for Client:</label>
-  <select name="stylistId">
-  @foreach (var stylist in Model["stylists"])
-  {
-    <option value=@stylist.GetId()>@stylist.GetName()</option>
-  }
-  </select>
-  <button type="submit">Add new cient!</button>
-</form>

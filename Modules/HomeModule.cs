@@ -27,15 +27,16 @@ namespace HairSalon
         model.Add("clients", allClients);
         return View["index.cshtml", model];
       };
-      Post["/clients/new"] = _ => {
-        Client newClient = new Client(Request.Form["clientName"], Request.Form["stylistId"]);
+      Post["/stylists/{id}/clients/new"] = parameters => {
+        var SearchId = parameters.id;
+        Client newClient = new Client(Request.Form["clientName"], SearchId);
         newClient.Save();
-        List<Client> allClients = Client.GetAll();
-        List<Stylist> allStylists = Stylist.GetAll();
-        Dictionary<string, object> model = new Dictionary<string, object> {};
-        model.Add("stylists", allStylists);
-        model.Add("clients", allClients);
-        return View["index.cshtml", model];
+        Dictionary<string, object> model = new Dictionary<string, object>();
+        var SelectedStylist = Stylist.Find(SearchId);
+        var StylistClients = SelectedStylist.GetClients();
+        model.Add("stylist", SelectedStylist);
+        model.Add("clients", StylistClients);
+        return View["stylist.cshtml", model];
       };
       Get["/stylists/{id}"] = parameters => {
         Dictionary<string, object> model = new Dictionary<string, object>();
